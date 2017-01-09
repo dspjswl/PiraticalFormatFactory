@@ -15,6 +15,10 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        private Progress progressForm = new Progress();
+        // 代理定义，可以在Invoke时传入相应的参数  
+        private delegate void funHandle(int nValue);
+        private funHandle myHandle = null;
         public Form1()
         {
             InitializeComponent();
@@ -37,6 +41,9 @@ namespace WindowsFormsApplication1
 
         private void CombineAudioAndVideo()
         {
+            // 启动线程  
+            System.Threading.Thread thread = new System.Threading.Thread(new System.Threading.ThreadStart(ThreadFun));
+            thread.Start();
             String audioTextStr = audioText.Text;
             String videoTextStr = videoText.Text;
             String outputTextStr = outputText.Text + extension.Text;
@@ -117,6 +124,26 @@ namespace WindowsFormsApplication1
             Byte[] encodedBytes = utf8.GetBytes(unicodeString);
             String decodedString = utf8.GetString(encodedBytes);
             return decodedString;
+        }
+
+        private void ThreadFun()
+        {
+            MethodInvoker mi = new MethodInvoker(ShowProgressBar);
+            this.BeginInvoke(mi);
+
+            System.Threading.Thread.Sleep(1000); // sleep to show window  
+
+            for (int i = 0; i < 1000; ++i)
+            {
+                System.Threading.Thread.Sleep(5);
+                // 这里直接调用代理  
+                this.Invoke(this.myHandle, new object[] { (i / 10) });
+            }
+        }
+        private void ShowProgressBar()
+        {
+            myHandle = new funHandle(progressForm.SetProgressValue);
+            progressForm.ShowDialog();
         }
     }
 }
