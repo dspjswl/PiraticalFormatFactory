@@ -56,7 +56,6 @@
             this.Controls.Add(this.progressBar1);
             this.Name = "Progress";
             this.Text = "Progress";
-            this.ResumeLayout(false);
 
         }
 

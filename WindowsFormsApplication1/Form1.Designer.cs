@@ -38,6 +38,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.extension = new System.Windows.Forms.Label();
+            this.outputPath = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // audioText
@@ -48,7 +49,6 @@
             this.audioText.ReadOnly = true;
             this.audioText.Size = new System.Drawing.Size(162, 21);
             this.audioText.TabIndex = 0;
-            this.audioText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // videoText
             // 
@@ -61,10 +61,10 @@
             // 
             // outputText
             // 
-            this.outputText.Location = new System.Drawing.Point(23, 130);
+            this.outputText.Location = new System.Drawing.Point(130, 132);
             this.outputText.Margin = new System.Windows.Forms.Padding(2);
             this.outputText.Name = "outputText";
-            this.outputText.Size = new System.Drawing.Size(162, 21);
+            this.outputText.Size = new System.Drawing.Size(100, 21);
             this.outputText.TabIndex = 2;
             // 
             // label1
@@ -76,7 +76,6 @@
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 3;
             this.label1.Text = "音频";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -97,14 +96,13 @@
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 5;
             this.label3.Text = "输出文件";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(23, 166);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 18);
+            this.button1.Size = new System.Drawing.Size(56, 25);
             this.button1.TabIndex = 6;
             this.button1.Text = "合并";
             this.button1.UseVisualStyleBackColor = true;
@@ -135,17 +133,27 @@
             // extension
             // 
             this.extension.AutoSize = true;
-            this.extension.Location = new System.Drawing.Point(190, 133);
+            this.extension.Location = new System.Drawing.Point(248, 133);
             this.extension.MinimumSize = new System.Drawing.Size(10, 0);
             this.extension.Name = "extension";
             this.extension.Size = new System.Drawing.Size(10, 12);
             this.extension.TabIndex = 9;
+            // 
+            // outputPath
+            // 
+            this.outputPath.AutoSize = true;
+            this.outputPath.Location = new System.Drawing.Point(25, 138);
+            this.outputPath.MinimumSize = new System.Drawing.Size(100, 0);
+            this.outputPath.Name = "outputPath";
+            this.outputPath.Size = new System.Drawing.Size(100, 12);
+            this.outputPath.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(378, 202);
+            this.Controls.Add(this.outputPath);
             this.Controls.Add(this.extension);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -176,6 +184,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label extension;
+        private System.Windows.Forms.Label outputPath;
     }
 }
 

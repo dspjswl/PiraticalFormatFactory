@@ -20,10 +20,16 @@ namespace WindowsFormsApplication1
         {
             this.progressBar1.Value = value;
             this.progressLabel.Text = "Progress :" + value.ToString() + "%";
-
-            // 这里关闭，比较好，呵呵！  
-            if (value == this.progressBar1.Maximum - 1) this.Close();
+            if (value == this.progressBar1.Maximum)
+            {
+                this.Close();
+            }
         }
+        public void SetProgressMaximum(int value)
+        {
+            progressBar1.Maximum = value;
+        }
+
     }
 
 }
